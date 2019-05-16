@@ -9,7 +9,12 @@ namespace HumanVsZombies
         //Intro
         public void Intro() {
             Console.Clear();
-            Console.WriteLine("Humanos VS Zombies");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("\t\t\t\t\t\tHumanos Vs Zombies ");
+            Console.WriteLine();
+            Console.WriteLine("\t\t\t\t\t\t  Press any key ");
             Console.ReadKey();
             MainMenu();
         }
@@ -17,10 +22,15 @@ namespace HumanVsZombies
         //Menu
         private void MainMenu() {
             Console.Clear();
-            Console.WriteLine("MENU");
-            Console.WriteLine("1 - Start");
-            Console.WriteLine("2 - Credits");
-            Console.WriteLine("3 - Quit");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("\t\t\t\t\t\tHumanos Vs Zombies ");
+            Console.WriteLine();
+            Console.WriteLine("\t\t\t\t\t\t------ MENU ------");
+            Console.WriteLine();
+            Console.WriteLine("\t\t\t\t\t\t     1 - Start");
+            Console.WriteLine("\t\t\t\t\t\t     2 - Credits");
+            Console.WriteLine("\t\t\t\t\t\t     3 - Quit");
 
             Console.WriteLine();
 
@@ -57,10 +67,13 @@ namespace HumanVsZombies
         private void Credits()
         {
             Console.Clear();
-            Console.WriteLine("PROJECT BY:");
-            Console.WriteLine("Diana Noia a21703004");
-            Console.WriteLine("Sara Gama a21705494");
-            Console.WriteLine("Catarina Matias a21801693");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("\t\t\t\t\t\t------ CREDITS ------ ");
+            Console.WriteLine();
+            Console.WriteLine("\t\t\t\t\t      Catarina Matias nº21801693");
+            Console.WriteLine("\t\t\t\t\t      Diana Noia      nº21703004");
+            Console.WriteLine("\t\t\t\t\t      Sara Gama       nº21705494");
             Console.ReadKey();
             MainMenu();
         }
