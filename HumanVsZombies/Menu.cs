@@ -46,7 +46,11 @@ namespace HumanVsZombies
         //Method to start game
         private void Start()
         {
-            //Go to GameLoop
+            Game gameLoop = new Game();
+
+            //Go to Game class
+            gameLoop.StartGame();
+
         }
 
         //Method for Credits
