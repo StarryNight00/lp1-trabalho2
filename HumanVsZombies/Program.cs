@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace HumanVsZombies
 {
@@ -6,7 +7,14 @@ namespace HumanVsZombies
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.OutputEncoding = Encoding.UTF8;
+
+            //Instancia classe Menu
+            Menu menu = new Menu();
+
+            menu.Intro();
+
+
         }
     }
 }
