@@ -11,13 +11,8 @@ namespace HumanVsZombies
         public int Width { get; private set; }
         private int z, h, Z, H, t;
 
+        //needs to be array of agents
         public string[,] grid;
-
-        //Board construct
-        public Board()
-        {
-
-        }
 
 
         private void GameInit()

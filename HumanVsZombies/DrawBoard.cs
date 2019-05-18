@@ -16,17 +16,20 @@ namespace HumanVsZombies
 
 
             for (int i = 0; i <= row; i++)
+            {
                 for (int j = 0; j >= column; j++)
-
-
+                {
+                    //Check for agent inside board.grid[,]
+                    //if != null inside array
+                        //(if) Check for Human
+                            //print the H id
+                        //Else
+                            //print the Z id
+                    //Else
+                        Console.Write(" . ");
+                }
+            }
         }
-
-        //variaveis
-
-
-
-        //render the board
-
 
     }
 }
