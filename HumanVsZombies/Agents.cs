@@ -4,11 +4,9 @@ using System.Text;
 
 namespace HumanVsZombies
 {
-    class Agents
+    public abstract class Agents
     {
-        private Player player;
-
-        public AgentType MyType { get; private set; }
+        public AgentType MyType { get; set; }
 
         public Agents(AgentType mytype)
         {
