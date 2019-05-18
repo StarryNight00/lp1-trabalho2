@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "HumanVsZombies": {
+      "commandName": "Project",
+      "commandLineArgs": "-x 20 -y 20 -z 10 -h 30 -Z 1 -H 2 -t 1000"
+    }
+  }
+}
