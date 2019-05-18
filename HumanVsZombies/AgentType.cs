@@ -4,5 +4,5 @@ using System.Text;
 
 namespace HumanVsZombies
 {
-    enum AgentType { human, zombie }
+    public enum AgentType { human, zombie }
 }

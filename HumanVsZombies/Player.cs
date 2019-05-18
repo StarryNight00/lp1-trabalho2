@@ -4,18 +4,18 @@ using System.Text;
 
 namespace HumanVsZombies
 {
-    class Player
+    class Player : Agents
     {
-        //
-        public Agents[] Agents { get; set; }
-        // 
-        public AgentType MyType { get; private set; }
+        // Empty Contructor
+        public Player(AgentType type) : base(type) { }
 
-        // 
-        public Player(AgentType type, int nagents)
+        public override string ToString()
         {
-            MyType = type;
-            Agents = new Agents[nagents];
+            // Create temporary string 
+            // Check if its Human or Zombie
+            return base.ToString();
+
+          
         }
     }
 }
