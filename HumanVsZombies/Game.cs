@@ -12,7 +12,7 @@ namespace HumanVsZombies
             Console.Clear();
 
             //...
-            Console.WriteLine("Hallo");
+
             Console.ReadKey();
         }
     }
