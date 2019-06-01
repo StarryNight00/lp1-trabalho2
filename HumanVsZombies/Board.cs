@@ -11,11 +11,17 @@ namespace HumanVsZombies
         public int Width { get; private set; }
         private int z, h, Z, H, t;
 
+
         //needs to be array of agents
-        public string[,] grid;
+        public Agents[,] grid;
+
+        public Board()
+        {
+            grid = new Agents[Width, Height];
+        }
 
 
-        private void GameInit()
+        internal void GameInit()
         {
             // string array that receives the arguments in main
             string[] values = Program.arguments;
