@@ -9,7 +9,8 @@ namespace HumanVsZombies
         //vars. receives height and width
         public int Height { get; private set; }
         public int Width { get; private set; }
-        private int z, h, Z, H, t;
+        private int z, h, Z, H;
+        public int t;
 
 
         //needs to be array of agents
@@ -17,43 +18,47 @@ namespace HumanVsZombies
 
         public Board()
         {
+            GameInit();
             grid = new Agents[Width, Height];
         }
 
 
-        internal void GameInit()
+        private void GameInit()
         {
             // string array that receives the arguments in main
             string[] values = Program.arguments;
 
             for (int i = 0; i < values.Length; i++)
             {
+                //Debug writeLines
+                //Console.Write(values[i]);
+                //Console.Write(values[i + 1]);
+
                 switch (values[i])
                 {
                     case "-x":
-                        Width = Convert.ToInt32(values[i] + 1);
+                        Width = Convert.ToInt32(values[i + 1]);
                         break;
                     case "-y":
-                        Height = Convert.ToInt32(values[i] + 1);
+                        Height = Convert.ToInt32(values[i + 1]);
                         break;
                     case "-z":
-                        z = Convert.ToInt32(values[i] + 1);
+                        z = Convert.ToInt32(values[i + 1]);
                         break;
                     case "-h":
-                        h = Convert.ToInt32(values[i] + 1);
+                        h = Convert.ToInt32(values[i + 1]);
                         break;
                     case "-Z":
-                        Z = Convert.ToInt32(values[i] + 1);
+                        Z = Convert.ToInt32(values[i + 1]);
                         break;
                     case "-H":
-                        H = Convert.ToInt32(values[i] + 1);
+                        H = Convert.ToInt32(values[i + 1]);
                         break;
                     case "-t":
-                        t = Convert.ToInt32(values[i] + 1);
+                        t = Convert.ToInt32(values[i + 1]);
                         break;
                 }
             }
-
         }
     }
 }

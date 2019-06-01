@@ -10,32 +10,33 @@ namespace HumanVsZombies
         public void BoardRender(Board board)
         {
             //variaveis
-            int column = board.Height;
-            int row = board.Width;
+            int column = board.Width;
+            int row = board.Height;
             Agents[,] grid = board.grid;
 
-
-
-            for (int i = 0; i <= row; i++)
+            for (int i = 0; i < row; i++)
             {
-                for (int j = 0; j <= column; j++)
+                Console.WriteLine();
+                for (int j = 0; j < column; j++)
                 {
-                    Console.WriteLine(i);
-                    Console.WriteLine(j);
-                    if (grid[i, j] != null)
+                    //Debug writeLines
+                    //Console.WriteLine(i);
+                    //Console.WriteLine(j);
+
+                    if (grid[j, i] == null)
                     {
-                        if (grid[i, j].MyType == AgentType.human)
+                        Console.Write(" . ");
+                    }
+                    else
+                    {
+                        if (grid[j, i].MyType == AgentType.human)
                         {
                             Console.Write(" H ");
                         }
                         else
                         {
                             Console.Write(" Z ");
-                        }
-                    }
-                    else
-                    {
-                        Console.Write(" . ");
+                        }  
                     }
                     //Check for agent inside board.grid[,]
                     //if != null inside array

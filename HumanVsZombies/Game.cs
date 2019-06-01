@@ -15,8 +15,6 @@ namespace HumanVsZombies
             Board gameboard = new Board();
             DrawBoard renderGame = new DrawBoard();
 
-            gameboard.GameInit();
-
             renderGame.BoardRender(gameboard);
 
             Console.ReadKey();
