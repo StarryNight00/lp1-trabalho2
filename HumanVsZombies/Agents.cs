@@ -38,29 +38,27 @@ namespace HumanVsZombies
         /// <param name="newY"></param>
         /// <param name="board"></param>
         /// <returns>retVal</returns>
-        public bool Toroidal(ref int newX, ref int newY, Board board)
+        public bool Toroidal(ref int newX, ref int newY, Board board, bool retVal)
         {
-            bool retVal = false;
-
             if (newX >= board.Width)
             {
                 newX = 0;
-                retVal = true;
+                retVal = !retVal;
             }
             else if (newX < 0)
             {
                 newX = board.Width - 1;
-                retVal = true;
+                retVal = !retVal;
             }
             if (newY >= board.Height)
             {
                 newY = 0;
-                retVal = true;
+                retVal = !retVal;
             }
             else if (newY < 0)
             {
                 newY = board.Height - 1;
-                retVal = true;
+                retVal = !retVal;
             }
 
             return retVal;

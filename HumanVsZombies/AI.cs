@@ -5,7 +5,7 @@ using System.Text;
 namespace HumanVsZombies
 {
     /// <summary>
-    /// Class AI 
+    /// Class AI whith automatics
     /// </summary>
     class AI : Agents
     {
@@ -32,7 +32,7 @@ namespace HumanVsZombies
                         move = 1;
                     else
                         move++;
-                    //
+                    //n
                     for (int block = 1; block <= i; block++)
                     {
                         switch (move)
@@ -51,17 +51,22 @@ namespace HumanVsZombies
                                 break;
                         }
 
-                        toroidal = Toroidal(ref newX, ref newY, board);
+                        toroidal = Toroidal(ref newX, ref newY, board, toroidal);
 
+                        // 
                         if (board.Grid[newX, newY] != null)
                         {
+                            // 
                             if (board.Grid[newX, newY].MyType != MyType)
                             {
                                 board.Grid[x, y] = default(Agents);
+                                // 
                                 if (MyType == AgentType.human)
                                 {
+                                    // 
                                     if (toroidal)
                                     {
+                                        // 
                                         if (newX < x && newY == y)
                                         {
                                             x++;
@@ -221,8 +226,9 @@ namespace HumanVsZombies
                                     }
                                 }
 
-                                Toroidal(ref x, ref y, board);
+                                Toroidal(ref x, ref y, board, toroidal);
 
+                                // 
                                 if (board.Grid[x, y] != null &&
                                         MyType == AgentType.zombie &&
                                         board.Grid[x, y].MyType == AgentType.human)
@@ -243,6 +249,10 @@ namespace HumanVsZombies
             }
         }
 
+        /// <summary>
+        /// Method ToString to show the 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             string temp;

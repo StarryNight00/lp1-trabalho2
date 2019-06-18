@@ -50,40 +50,80 @@ namespace HumanVsZombies
         //draw legend
         public void Legend(Agents a)
         {
-            if (board.Grid[a.PosX, a.PosY - 1] == null)
+            int x = a.PosX;
+            int y = a.PosY;
+
+            if (x >= board.Width)
+            {
+                x = 0;
+            }
+            else if (x < 0)
+            {
+                x = board.Width - 1;
+            }
+            if (y >= board.Height)
+            {
+                y = 0;
+            }
+            else if (y < 0)
+            {
+                y = board.Height - 1;
+            }
+
+            if ((y - 1) < 0)
+            {
+                y = board.Height;
+            }
+            if (board.Grid[x, y - 1] == null)
             {
                 N = "Empty";
             }
             else
             {
-                N = board.Grid[a.PosX, a.PosY - 1].ToString();
+                N = board.Grid[x, y - 1].ToString();
             }
+            
+            y = a.PosY;
 
-            if (board.Grid[a.PosX, a.PosY + 1] == null)
+            if ((y + 1) >= board.Height)
+            {
+                y = -1;
+            }
+            if (board.Grid[x, y + 1] == null)
             {
                 S = "Empty";
             }
             else
             {
-                S = board.Grid[a.PosX, a.PosY + 1].ToString();
+                S = board.Grid[x, y + 1].ToString();
             }
+            y = a.PosY;
 
-            if (board.Grid[a.PosX - 1, a.PosY] == null)
+            if ((x - 1) < 0)
+            {
+                x = board.Width;
+            }
+            if (board.Grid[x - 1, y] == null)
             {
                 O = "Empty";
             }
             else
             {
-                O = board.Grid[a.PosX - 1, a.PosY].ToString();
+                O = board.Grid[x - 1, y].ToString();
             }
+            x = a.PosX;
 
-            if (board.Grid[a.PosX + 1, a.PosY] == null)
+            if ((x + 1) >= board.Height)
+            {
+                x = -1;
+            }
+            if (board.Grid[x + 1, y] == null)
             {
                 E = "Empty";
             }
             else
             {
-                E = board.Grid[a.PosX + 1, a.PosY].ToString();
+                E = board.Grid[x + 1, y].ToString();
             }
 
             Console.SetCursorPosition(board.Width * 4 + 8, 1);
@@ -100,13 +140,13 @@ namespace HumanVsZombies
             Console.SetCursorPosition(board.Width * 4 + 5, 13);
             Console.Write($"* Próximo a jogar: {a.ToString()} ");
             Console.SetCursorPosition(board.Width * 4 + 5, 14);
-            Console.Write($"   - A Norte: {board.Grid[a.PosX, a.PosY - 1]}");
+            Console.Write($"   - A Norte: {N}");
             Console.SetCursorPosition(board.Width * 4 + 5, 15);
-            Console.Write($"   - A Sul: {board.Grid[a.PosX, a.PosY + 1]}");
+            Console.Write($"   - A Sul: {S}");
             Console.SetCursorPosition(board.Width * 4 + 5, 16);
-            Console.Write($"   - A Oeste:{board.Grid[a.PosX - 1, a.PosY]} ");
+            Console.Write($"   - A Oeste:{O} ");
             Console.SetCursorPosition(board.Width * 4 + 5, 17);
-            Console.Write($"   - A Este: {board.Grid[a.PosX + 1, a.PosY]}");
+            Console.Write($"   - A Este: {E}");
             Console.SetCursorPosition(board.Width * 4 + 5, 18);
             Console.Write("* Qual o caminho a seguir? > ");
         }
