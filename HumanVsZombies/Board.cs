@@ -24,7 +24,7 @@ namespace HumanVsZombies
         public int Height { get; private set; }
         public int Width { get; private set; }
         public int Turn { get; private set; }
-        private int z, h, Z, H;
+        public int z, h, Z, H;
 
         /// <summary>
         /// Constructor for the board class
