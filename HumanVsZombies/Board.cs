@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HumanVsZombies
 {
-    class Board
+    public class Board
     {
         private Random rand;
 
