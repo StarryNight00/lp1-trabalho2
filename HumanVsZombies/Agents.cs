@@ -9,7 +9,7 @@ namespace HumanVsZombies
     /// </summary>
     public abstract class Agents
     {
-        /* Propriedade AgentType*/
+        /* brief Propriedades de bla bla */
         public AgentType MyType { get; set; }
 
         /// <summary>
