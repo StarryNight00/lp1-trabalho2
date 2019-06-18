@@ -84,7 +84,7 @@ namespace HumanVsZombies
         /// <summary>
         /// Function that reads the args string to transfer the values.
         /// </summary>
-        private void GameInit()
+        internal void GameInit()
         {
             //String array that receives the arguments in main
             string[] values = Program.arguments;
