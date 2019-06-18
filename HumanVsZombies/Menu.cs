@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace HumanVsZombies
 {
     class Menu
     {
-        // UNICODES HUMANO ☻ \u263B ZOMBIE ◌ \u25CC
+        // UNICODES HUMANO ☻ \u263B ZOMBIE ◌ \u25CC | @ \u0040   ʘ\u0298
 
         //Intro
         public void Intro() {
