@@ -55,17 +55,16 @@ namespace HumanVsZombies
                     newY--;
                     break;
             }
+        public override string ToString()
+        {
+            // Create temporary string 
+            // Check if its Human or Zombie
+            string temp;
+            if (MyType == AgentType.human)
+                temp = "H";
+            else
+                temp = "Z";
+            return string.Format(temp + $"{Id:D2}");
         }
-    }
-    public override string ToString()
-    {
-        // Create temporary string 
-        // Check if its Human or Zombie
-        string temp;
-        if (MyType == AgentType.human)
-            temp = "H";
-        else
-            temp = "Z";
-        return string.Format(temp + $"{Id:D2}");
     }
 }
