@@ -6,13 +6,21 @@ namespace HumanVsZombies
 {
     class Board
     {
+        /*Random Class variable. Allows to call number randomizers*/
         private Random rand;
 
-        ////Needs to be array of agents
+        /*This Property will permit to save Agents in an Array,
+         * save their values and call on them later*/
         public Agents[,] Grid { get; set; }
+
+        /*List of Agents. Permits to shuffle the Agents in order to randomize
+         * the Agents' turn order*/
         public List<Agents> AgentsList;
 
-        //Vars. receives height and width
+        /*Properties and variables that receive all the basic input parameters.
+         * The Properties are callable from other classes, allowing to save a
+         * value here (not permited anywere else due to the private set) and
+         * use it in some other class*/
         public int Height { get; private set; }
         public int Width { get; private set; }
         public int Turn { get; private set; }
@@ -59,6 +67,14 @@ namespace HumanVsZombies
             }
         }
 
+
+        /// <summary>
+        /// Randomizes the first coordinates of each Agent, checks if said
+        /// coordinates already have an Agent, re-randomizing its coordinates,
+        /// and placing them on the List of Agents.
+        /// </summary>
+        /// <param name="currentX">Int value. Current X position of this Agent.</param>
+        /// <param name="currentY">Int value. Current Y position of this Agent</param>
         private void RandomLocation(ref int currentX, ref int currentY)
         {
             currentX = rand.Next(0, Width);
@@ -71,7 +87,8 @@ namespace HumanVsZombies
         }
 
         /// <summary>
-        /// Choose random spot on grid to place an agent
+        /// Places the Agent on its coordinates in the Array by reading each 
+        /// Agent in AgentList.
         /// </summary>
         internal void InitializeGrid()
         {
