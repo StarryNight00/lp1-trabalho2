@@ -4,15 +4,29 @@ using System.Text;
 
 namespace HumanVsZombies
 {
+    /// <summary>
+    /// Class Agents
+    /// </summary>
     public abstract class Agents
     {
+        /* brief Propriedades de bla bla */
         public AgentType MyType { get; set; }
 
+        /// <summary>
+        /// Constructor Agents
+        /// </summary>
+        /// <param name="mytype"></param>
         public Agents(AgentType mytype)
         {
             MyType = mytype;
         }
-
+        /// <summary>
+        /// Method Toroidal
+        /// </summary> 
+        /// <param name="newX"></param>
+        /// <param name="newY"></param>
+        /// <param name="board"></param>
+        /// <returns>retVal</returns>
         public bool Toroidal(ref int newX, ref int newY, Board board)
         {
             bool retVal = false;

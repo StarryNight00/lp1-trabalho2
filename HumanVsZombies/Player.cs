@@ -55,6 +55,23 @@ namespace HumanVsZombies
                     newY--;
                     break;
             }
+
+            Toroidal(ref newX, ref newY, board);
+
+            if (board.Grid[newX, newY] != null)
+            {
+                if (MyType == AgentType.zombie && board.Grid[newX, newY].MyType == AgentType.human)
+                    Infection(board.Grid[newX, newY], board);
+            }
+            else
+            {
+                board.Grid[PosX, PosY] = default(Agents);
+                board.Grid[newX, newY] = this;
+                PosX = newX;
+                PosY = newY;
+            }
+        }
+
         public override string ToString()
         {
             // Create temporary string 

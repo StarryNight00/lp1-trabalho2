@@ -50,194 +50,207 @@ namespace HumanVsZombies
                                 newY--;
                                 break;
                         }
+
+                        toroidal = Toroidal(ref newX, ref newY, board);
+
+                        if (board.Grid[newX, newY] != null)
+                        {
+                            if (board.Grid[newX, newY].MyType != MyType)
+                            {
+                                board.Grid[x, y] = default(Agents);
+                                if (MyType == AgentType.human)
+                                {
+                                    if (toroidal)
+                                    {
+                                        if (newX < x && newY == y)
+                                        {
+                                            x++;
+                                        }
+                                        else if (newX > x && newY == y)
+                                        {
+                                            x--;
+                                        }
+                                        else if (newX < x && newY < y)
+                                        {
+                                            x++;
+                                            y++;
+                                        }
+                                        else if (newX > x && newY < y)
+                                        {
+                                            x--;
+                                            y++;
+                                        }
+                                        else if (newX < x && newY > y)
+                                        {
+                                            x++;
+                                            y--;
+                                        }
+                                        else if (newX > x && newY > y)
+                                        {
+                                            x--;
+                                            y--;
+                                        }
+                                        else if (newX == x && newY < y)
+                                        {
+                                            y++;
+                                        }
+                                        else if (newX == x && newY > y)
+                                        {
+                                            y--;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (newX < x && newY == y)
+                                        {
+                                            x++;
+                                        }
+                                        else if (newX > x && newY == y)
+                                        {
+                                            x--;
+                                        }
+                                        else if (newX < x && newY < y)
+                                        {
+                                            x++;
+                                            y++;
+                                        }
+                                        else if (newX > x && newY < y)
+                                        {
+                                            x--;
+                                            y++;
+                                        }
+                                        else if (newX < x && newY > y)
+                                        {
+                                            x++;
+                                            y--;
+                                        }
+                                        else if (newX > x && newY > y)
+                                        {
+                                            x--;
+                                            y--;
+                                        }
+                                        else if (newX == x && newY < y)
+                                        {
+                                            y++;
+                                        }
+                                        else if (newX == x && newY > y)
+                                        {
+                                            y--;
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    if (toroidal)
+                                    {
+                                        if (newX < x && newY == y)
+                                        {
+                                            x++;
+                                        }
+                                        else if (newX > x && newY == y)
+                                        {
+                                            x--;
+                                        }
+                                        else if (newX < x && newY < y)
+                                        {
+                                            x++;
+                                            y++;
+                                        }
+                                        else if (newX > x && newY < y)
+                                        {
+                                            x--;
+                                            y++;
+                                        }
+                                        else if (newX < x && newY > y)
+                                        {
+                                            x++;
+                                            y--;
+                                        }
+                                        else if (newX > x && newY > y)
+                                        {
+                                            x--;
+                                            y--;
+                                        }
+                                        else if (newX == x && newY < y)
+                                        {
+                                            y++;
+                                        }
+                                        else if (newX == x && newY > y)
+                                        {
+                                            y--;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (newX < x && newY == y)
+                                        {
+                                            x--;
+                                        }
+                                        else if (newX > x && newY == y)
+                                        {
+                                            x++;
+                                        }
+                                        else if (newX < x && newY < y)
+                                        {
+                                            x--;
+                                            y--;
+                                        }
+                                        else if (newX > x && newY < y)
+                                        {
+                                            x++;
+                                            y--;
+                                        }
+                                        else if (newX < x && newY > y)
+                                        {
+                                            x--;
+                                            y++;
+                                        }
+                                        else if (newX > x && newY > y)
+                                        {
+                                            x++;
+                                            y++;
+                                        }
+                                        else if (newX == x && newY < y)
+                                        {
+                                            y--;
+                                        }
+                                        else if (newX == x && newY > y)
+                                        {
+                                            y++;
+                                        }
+                                    }
+                                }
+
+                                Toroidal(ref x, ref y, board);
+
+                                if (board.Grid[x, y] != null &&
+                                        MyType == AgentType.zombie &&
+                                        board.Grid[x, y].MyType == AgentType.human)
+                                {
+                                    Infection(board.Grid[newX, newY], board);
+                                }
+                                board.Grid[x, y] = this;
+
+                                PosX = x;
+                                PosY = y;
+                                return;
+                            }
+                        }
+
                     }
+
                 }
             }
-            toroidal = Toroidal(ref newX, ref newY, board);
+        }
 
-            if (board.Grid[newX, newY] != null)
-            {
-                if (board.Grid[newX, newY].MyType != MyType)
-                {
-                    board.Grid[x, y] = default(Agents);
-                    if (MyType == AgentType.human)
-                    {
-                        if (toroidal)
-                        {
-                            if (newX < x && newY == y)
-                            {
-                                x++;
-                            }
-                            else if (newX > x && newY == y)
-                            {
-                                x--;
-                            }
-                            else if (newX < x && newY < y)
-                            {
-                                x++;
-                                y++;
-                            }
-                            else if (newX > x && newY < y)
-                            {
-                                x--;
-                                y++;
-                            }
-                            else if (newX < x && newY > y)
-                            {
-                                x++;
-                                y--;
-                            }
-                            else if (newX > x && newY > y)
-                            {
-                                x--;
-                                y--;
-                            }
-                            else if (newX == x && newY < y)
-                            {
-                                y++;
-                            }
-                            else if (newX == x && newY > y)
-                            {
-                                y--;
-                            }
-                        }
-                        else
-                        {
-                            if (newX < x && newY == y)
-                            {
-                                x++;
-                            }
-                            else if (newX > x && newY == y)
-                            {
-                                x--;
-                            }
-                            else if (newX < x && newY < y)
-                            {
-                                x++;
-                                y++;
-                            }
-                            else if (newX > x && newY < y)
-                            {
-                                x--;
-                                y++;
-                            }
-                            else if (newX < x && newY > y)
-                            {
-                                x++;
-                                y--;
-                            }
-                            else if (newX > x && newY > y)
-                            {
-                                x--;
-                                y--;
-                            }
-                            else if (newX == x && newY < y)
-                            {
-                                y++;
-                            }
-                            else if (newX == x && newY > y)
-                            {
-                                y--;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (toroidal)
-                        {
-                            if (newX < x && newY == y)
-                            {
-                                x++;
-                            }
-                            else if (newX > x && newY == y)
-                            {
-                                x--;
-                            }
-                            else if (newX < x && newY < y)
-                            {
-                                x++;
-                                y++;
-                            }
-                            else if (newX > x && newY < y)
-                            {
-                                x--;
-                                y++;
-                            }
-                            else if (newX < x && newY > y)
-                            {
-                                x++;
-                                y--;
-                            }
-                            else if (newX > x && newY > y)
-                            {
-                                x--;
-                                y--;
-                            }
-                            else if (newX == x && newY < y)
-                            {
-                                y++;
-                            }
-                            else if (newX == x && newY > y)
-                            {
-                                y--;
-                            }
-                        }
-                        else
-                        {
-                            if (newX < x && newY == y)
-                            {
-                                x--;
-                            }
-                            else if (newX > x && newY == y)
-                            {
-                                x++;
-                            }
-                            else if (newX < x && newY < y)
-                            {
-                                x--;
-                                y--;
-                            }
-                            else if (newX > x && newY < y)
-                            {
-                                x++;
-                                y--;
-                            }
-                            else if (newX < x && newY > y)
-                            {
-                                x--;
-                                y++;
-                            }
-                            else if (newX > x && newY > y)
-                            {
-                                x++;
-                                y++;
-                            }
-                            else if (newX == x && newY < y)
-                            {
-                                y--;
-                            }
-                            else if (newX == x && newY > y)
-                            {
-                                y++;
-                            }
-                        }
-                    }
-
-                    Toroidal(ref x, ref y, board);
-
-                    if (board.Grid[x, y] != null &&
-                            MyType == AgentType.zombie &&
-                            board.Grid[x, y].MyType == AgentType.human)
-                    {
-                        Infection(board.Grid[newX, newY], board);
-                    }
-                    board.Grid[x, y] = this;
-
-                    PosX = x;
-                    PosY = y;
-                    return;
-                }
-            }
+        public override string ToString()
+        {
+            string temp;
+            if (MyType == AgentType.human)
+                temp = "h";
+            else
+                temp = "z";
+            return string.Format(temp + $"{Id:D2}");
         }
     }
 }
