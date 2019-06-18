@@ -12,14 +12,25 @@ namespace HumanVsZombies
         /* brief Propriedades de bla bla */
         public AgentType MyType { get; set; }
 
+        public int Id { get; private set; }
+
+        public int PosX { get; set; }
+        public int PosY { get; set; }
+
+        public Board board;
+
         /// <summary>
         /// Constructor Agents
         /// </summary>
         /// <param name="mytype"></param>
-        public Agents(AgentType mytype)
+        public Agents(AgentType mytype, int id, int posX, int posY)
         {
             MyType = mytype;
+            Id = id;
+            PosX = posX;
+            PosY = posY;
         }
+
         /// <summary>
         /// Method Toroidal
         /// </summary> 
@@ -53,6 +64,20 @@ namespace HumanVsZombies
             }
 
             return retVal;
+        }
+
+        // Metodo q faz infeção de humanos
+        public void Infection(Agents agent, Board board)
+        {
+            agent.MyType = AgentType.zombie;
+            agent.Id = board.z + board.Z;
+
+            if (agent is Player)
+            {
+                board.Z++;
+            }
+            else
+                board.z++;
         }
     }
 }
