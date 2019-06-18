@@ -6,50 +6,46 @@ namespace HumanVsZombies
 {
     class DrawBoard
     {
-        //render the board
-        public void BoardRender(Board board)
+        public string N;
+        public string S;
+        public string O;
+        public string E;
+
+        private Board board;
+        // private Player keyinfo;
+
+        public DrawBoard(Board board)
         {
-            //variaveis
-            int column = board.Width;
-            int row = board.Height;
-            Agents[,] grid = board.grid;
-
-            for (int i = 0; i < row; i++)
-            {
-                Console.WriteLine();
-                for (int j = 0; j < column; j++)
-                {
-                    //Debug writeLines
-                    //Console.WriteLine(i);
-                    //Console.WriteLine(j);
-
-                    if (grid[j, i] == null)
-                    {
-                        Console.Write(" . ");
-                    }
-                    else
-                    {
-                        if (grid[j, i].MyType == AgentType.human)
-                        {
-                            Console.Write(" H ");
-                        }
-                        else
-                        {
-                            Console.Write(" Z ");
-                        }  
-                    }
-                    //Check for agent inside board.grid[,]
-                    //if != null inside array
-                        //(if) Check for Human
-                            //print the H id
-                        //Else
-                            //print the Z id
-                    //Else
-                    
-                        //Console.Write(" . ");
-                }
-            }
+            this.board = board;
         }
 
+        //render the board
+        public void BoardRender()
+        {
+            Console.Clear();
+            //
+            for (int y = 0; y < board.Height; y++)
+            {
+                //
+                for (int x = 0; x < board.Width; x++)
+                {
+                    Console.Write(" ");
+                    if (board.Grid[x, y] != null)
+                    {
+                        if (board.Grid[x, y].MyType == AgentType.human)
+                            Console.ForegroundColor = ConsoleColor.Blue;
+                        else
+                            Console.ForegroundColor = ConsoleColor.Red;
+
+                        Console.Write(board.Grid[x, y].ToString());
+
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
+                    else
+                        Console.Write(" . ");
+                }
+                Console.WriteLine("\n");
+            }
+        }
     }
 }
