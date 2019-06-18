@@ -5,11 +5,13 @@ using System.Text;
 namespace HumanVsZombies
 {
     /// <summary>
-    /// Class Agents
+    /// Class Agents that controls the given AgentType to each Agent.
+    /// Also controls Type exchange (human to zombie)
     /// </summary>
     public abstract class Agents
     {
-        /* brief Propriedades de bla bla */
+        /*Set of Properties that allow to change the game state at all times*/
+        /*Id is a private set Property because it is not a changeable property*/
         public AgentType MyType { get; set; }
 
         public int Id { get; private set; }
@@ -20,9 +22,9 @@ namespace HumanVsZombies
         public Board board;
 
         /// <summary>
-        /// Constructor Agents
+        /// Agents constructor. Gives a type, id and coordinate position to each Agent.
         /// </summary>
-        /// <param name="mytype"></param>
+        /// <param name="mytype">Enumeration that gives out the Agents' type.</param>
         public Agents(AgentType mytype, int id, int posX, int posY)
         {
             MyType = mytype;
@@ -32,11 +34,13 @@ namespace HumanVsZombies
         }
 
         /// <summary>
-        /// Method Toroidal
+        /// Controls the Toroidal quality of the map.
+        /// Resets the out of bounds coordinate for the correspondent
+        /// in board coordinate.
         /// </summary> 
-        /// <param name="newX"></param>
-        /// <param name="newY"></param>
-        /// <param name="board"></param>
+        /// <param name="newX">New coordinate in X.</param>
+        /// <param name="newY">New coordinate in Y.</param>
+        /// <param name="board">Current board of Agents.</param>
         /// <returns>retVal</returns>
         public bool Toroidal(ref int newX, ref int newY, Board board, bool retVal)
         {
@@ -64,7 +68,11 @@ namespace HumanVsZombies
             return retVal;
         }
 
-        // Metodo q faz infeção de humanos
+        /// <summary>
+        /// Method that changes the AgentsType from Human to Zombie upon infection.
+        /// </summary>
+        /// <param name="agent">Turn given agent.</param>
+        /// <param name="board">Current game Board.</param>
         public void Infection(Agents agent, Board board)
         {
             agent.MyType = AgentType.zombie;
