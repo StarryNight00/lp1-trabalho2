@@ -4,6 +4,9 @@ using System.Text;
 
 namespace HumanVsZombies
 {
+    /// <summary>
+    /// 
+    /// </summary>
     class Game
     {
         private Board gameboard;
@@ -14,13 +17,15 @@ namespace HumanVsZombies
         private int currentTurn;
 
 
-        //Calls DrawGame
+        /// <summary>
+        /// Calls DrawGame
+        /// </summary>
         public void StartGame()
         {
             Console.Clear();
 
             //...
-            Board gameboard = new Board();
+            gameboard = new Board();
             renderGame = new DrawBoard(gameboard);
 
             gameboard.GameInit();
@@ -35,11 +40,15 @@ namespace HumanVsZombies
             GameLoop();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void GameLoop()
         {
             do
             {
                 int i = 0;
+
                 foreach (Agents a in gameboard.AgentsList)
                 {
                     renderGame.BoardRender();
@@ -60,7 +69,7 @@ namespace HumanVsZombies
                 currentTurn++;
             }
 
-            // checks if win condition is false
+            // Checks if win condition is false
             while (!winCondition && currentTurn < gameboard.Turn);
             Console.ReadLine();
         }

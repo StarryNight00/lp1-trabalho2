@@ -4,11 +4,18 @@ using System.Text;
 
 namespace HumanVsZombies
 {
+    /// <summary>
+    /// 
+    /// </summary>
     class Player : Agents
     {
         // Empty Contructor
         public Player(AgentType type, int id, int posX, int posY) : base(type, id, posX, posY) { }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="board"></param>
         public void MovePlayer(Board board)
         {
             int newX = PosX;
@@ -16,6 +23,8 @@ namespace HumanVsZombies
 
             ConsoleKeyInfo keyInfo;
             keyInfo = Console.ReadKey();
+
+            // 
             switch (keyInfo.Key)
             {
                 // diagonal left baixo
@@ -56,8 +65,9 @@ namespace HumanVsZombies
                     break;
             }
 
-            Toroidal(ref newX, ref newY, board);
+            Toroidal(ref newX, ref newY, board, false);
 
+            // 
             if (board.Grid[newX, newY] != null)
             {
                 if (MyType == AgentType.zombie && board.Grid[newX, newY].MyType == AgentType.human)
@@ -72,6 +82,10 @@ namespace HumanVsZombies
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             // Create temporary string 

@@ -19,7 +19,7 @@ namespace HumanVsZombies
 
         /*List of Agents. Permits to shuffle the Agents in order to randomize
          * the Agents' turn order*/
-        public List<Agents> AgentsList;
+        public List<Agents> AgentsList { get; set; }
 
         /*Properties and variables that receive all the basic input parameters.
          * The Properties are callable from other classes, allowing to save a
