@@ -6,28 +6,33 @@ namespace HumanVsZombies
 {
     class DrawBoard
     {
-        //Set of strings to draw the 
+        //Set of strings to draw the Map's direction text
         public string N;
         public string S;
         public string O;
         public string E;
 
         private Board board;
-        // private Player keyinfo;
 
+        /// <summary>
+        /// DrawBoard constructor. Receives a board to draw.
+        /// </summary>
+        /// <param name="board">Game's board.</param>
         public DrawBoard(Board board)
         {
             this.board = board;
         }
 
-        //render the board
+        /// <summary>
+        /// Method that renders the board according to each agent's information.
+        /// </summary>
         public void BoardRender()
         {
             Console.Clear();
-            //
+            //Cycle that checks for each AgentType in board's Agents and
+            //renders their position
             for (int y = 0; y < board.Height; y++)
             {
-                //
                 for (int x = 0; x < board.Width; x++)
                 {
                     Console.Write(" ");
@@ -48,7 +53,11 @@ namespace HumanVsZombies
                 Console.WriteLine("\n");
             }
         }
-        //draw legend
+
+        /// <summary>
+        /// Direction text on the side of the board in game.
+        /// </summary>
+        /// <param name="a">Agent type variable.</param>
         public void Legend(Agents a)
         {
             int x = a.PosX;
