@@ -4,6 +4,10 @@ using System.Text;
 
 namespace HumanVsZombies
 {
+    /// <summary>
+    /// Class that controls all variables related to the game board
+    /// and its initialization.
+    /// </summary>
     public class Board
     {
         /*Random Class variable. Allows to call number randomizers*/

@@ -6,6 +6,7 @@ namespace HumanVsZombies
 {
     class DrawBoard
     {
+        //Set of strings to draw the 
         public string N;
         public string S;
         public string O;
