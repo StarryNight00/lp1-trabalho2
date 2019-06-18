@@ -47,5 +47,68 @@ namespace HumanVsZombies
                 Console.WriteLine("\n");
             }
         }
+        //draw legend
+        public void Legend(Agents a)
+        {
+            if (board.Grid[a.PosX, a.PosY - 1] == null)
+            {
+                N = "Empty";
+            }
+            else
+            {
+                N = board.Grid[a.PosX, a.PosY - 1].ToString();
+            }
+
+            if (board.Grid[a.PosX, a.PosY + 1] == null)
+            {
+                S = "Empty";
+            }
+            else
+            {
+                S = board.Grid[a.PosX, a.PosY + 1].ToString();
+            }
+
+            if (board.Grid[a.PosX - 1, a.PosY] == null)
+            {
+                O = "Empty";
+            }
+            else
+            {
+                O = board.Grid[a.PosX - 1, a.PosY].ToString();
+            }
+
+            if (board.Grid[a.PosX + 1, a.PosY] == null)
+            {
+                E = "Empty";
+            }
+            else
+            {
+                E = board.Grid[a.PosX + 1, a.PosY].ToString();
+            }
+
+            Console.SetCursorPosition(board.Width * 4 + 8, 1);
+            Console.Write("N");
+            Console.SetCursorPosition(board.Width * 4 + 8, 2);
+            Console.Write("|");
+            Console.SetCursorPosition(board.Width * 4 + 5, 3);
+            Console.Write("O--+--E");
+            Console.SetCursorPosition(board.Width * 4 + 8, 4);
+            Console.Write("|");
+            Console.SetCursorPosition(board.Width * 4 + 8, 5);
+            Console.Write("S");
+
+            Console.SetCursorPosition(board.Width * 4 + 5, 13);
+            Console.Write($"* Próximo a jogar: {a.ToString()} ");
+            Console.SetCursorPosition(board.Width * 4 + 5, 14);
+            Console.Write($"   - A Norte: {board.Grid[a.PosX, a.PosY - 1]}");
+            Console.SetCursorPosition(board.Width * 4 + 5, 15);
+            Console.Write($"   - A Sul: {board.Grid[a.PosX, a.PosY + 1]}");
+            Console.SetCursorPosition(board.Width * 4 + 5, 16);
+            Console.Write($"   - A Oeste:{board.Grid[a.PosX - 1, a.PosY]} ");
+            Console.SetCursorPosition(board.Width * 4 + 5, 17);
+            Console.Write($"   - A Este: {board.Grid[a.PosX + 1, a.PosY]}");
+            Console.SetCursorPosition(board.Width * 4 + 5, 18);
+            Console.Write("* Qual o caminho a seguir? > ");
+        }
     }
 }
