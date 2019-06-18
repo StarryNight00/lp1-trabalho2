@@ -54,5 +54,18 @@ namespace HumanVsZombies
 
             return retVal;
         }
+        // Metodo q faz infeção de humanos
+        public void Infection(Agents agent, Board board)
+        {
+            agent.MyType = AgentType.zombie;
+            agent.Id = board.z + board.Z;
+
+            if (agent is Player)
+            {
+                board.Z++;
+            }
+            else
+                board.z++;
+        }
     }
 }
