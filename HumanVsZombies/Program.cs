@@ -3,6 +3,9 @@ using System.Text;
 
 namespace HumanVsZombies
 {
+    /// <summary>
+    /// Class to start the menu
+    /// </summary>
     class Program
     {
         public static string[] arguments;

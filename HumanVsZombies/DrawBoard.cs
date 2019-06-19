@@ -2,6 +2,9 @@
 
 namespace HumanVsZombies
 {
+    /// <summary>
+    /// Class to draw the game
+    /// </summary>
     class DrawBoard
     {
         //Set of strings to draw the Map's direction text

@@ -24,7 +24,6 @@ namespace HumanVsZombies
         {
             Console.Clear();
 
-            //...
             gameboard = new Board();
             renderGame = new DrawBoard(gameboard);
 

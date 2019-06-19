@@ -2,6 +2,9 @@
 
 namespace HumanVsZombies
 {
+    /// <summary>
+    /// Class to draw the menu
+    /// </summary>
     class Menu
     {
         // UNICODES HUMANO ☻ \u263B ZOMBIE ◌ \u25CC | @ \u0040   ʘ\u0298
