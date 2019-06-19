@@ -83,7 +83,7 @@ namespace HumanVsZombies
         }
 
         /// <summary>
-        /// 
+        /// Overrides the ToString methos and permits to change the printed symbol.
         /// </summary>
         /// <returns></returns>
         public override string ToString()
