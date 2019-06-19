@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace HumanVsZombies
+﻿namespace HumanVsZombies
 {
     /// <summary>
     /// Enumeration of the two agent types: human and zombie

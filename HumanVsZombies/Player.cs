@@ -65,14 +65,16 @@ namespace HumanVsZombies
                     break;
             }
 
+            // Reference of toroidal method
             Toroidal(ref newX, ref newY, board, false);
-
-            // 
+            
+            // Infection
             if (board.Grid[newX, newY] != null)
             {
                 if (MyType == AgentType.zombie && board.Grid[newX, newY].MyType == AgentType.human)
                     Infection(board.Grid[newX, newY], board);
             }
+            // Movement
             else
             {
                 board.Grid[PosX, PosY] = default(Agents);

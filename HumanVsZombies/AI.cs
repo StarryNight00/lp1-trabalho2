@@ -31,7 +31,7 @@
                         move = 1;
                     else
                         move++;
-                    //
+                    // Direction of the movement
                     for (int block = 1; block <= i; block++)
                     {
                         switch (move)
@@ -52,20 +52,19 @@
 
                         toroidal = Toroidal(ref newX, ref newY, board, toroidal);
 
-                        // 
+                        // If position not empty
                         if (board.Grid[newX, newY] != null)
                         {
-                            // 
+                            // If agent diferent from current type
                             if (board.Grid[newX, newY].MyType != MyType)
                             {
                                 board.Grid[x, y] = default(Agents);
-                                // 
+
+                                // If current agent human
                                 if (MyType == AgentType.human)
                                 {
-                                    // 
                                     if (toroidal)
                                     {
-                                        // 
                                         if (newX < x && newY == y)
                                         {
                                             x++;
@@ -143,6 +142,7 @@
                                         }
                                     }
                                 }
+                                // If current agent zombie
                                 else
                                 {
                                     if (toroidal)
