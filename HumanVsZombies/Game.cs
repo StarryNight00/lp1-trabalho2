@@ -3,20 +3,22 @@
 namespace HumanVsZombies
 {
     /// <summary>
-    /// 
+    /// Class that initializes the gameloop and controls game related variables.
     /// </summary>
     class Game
     {
+        //Creating the game's board controling variables through the correspondent class.
         private Board gameboard;
         private DrawBoard renderGame;
 
+        //Game state check variables
         private bool winCondition;
         private string input;
         private int currentTurn;
 
 
         /// <summary>
-        /// Calls DrawGame
+        /// Calls on DrawGame and initializes the Board
         /// </summary>
         public void StartGame()
         {
@@ -39,7 +41,7 @@ namespace HumanVsZombies
         }
 
         /// <summary>
-        /// 
+        /// Gameloop control method. Controls the game's state with each cycle.
         /// </summary>
         public void GameLoop()
         {
@@ -47,6 +49,8 @@ namespace HumanVsZombies
             {
                 int i = 0;
 
+                //Goes through all the Agents in AgentList with each turn
+                //and prints the current state.
                 foreach (Agents a in gameboard.AgentsList)
                 {
                     renderGame.BoardRender();

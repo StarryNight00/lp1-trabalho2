@@ -6,7 +6,9 @@ namespace HumanVsZombies
     {
         // UNICODES HUMANO ☻ \u263B ZOMBIE ◌ \u25CC | @ \u0040   ʘ\u0298
 
-        //Intro
+        /// <summary>
+        /// Intro method to print the program's first display
+        /// </summary>
         public void Intro() {
             Console.Clear();
             // x, y human
@@ -40,7 +42,9 @@ namespace HumanVsZombies
             MainMenu();
         }
 
-        // Menu
+        /// <summary>
+        /// Menu method. Prints the input options and calls the switch case. 
+        /// </summary>
         private void MainMenu() {
             Console.Clear();
             Console.WriteLine();
@@ -55,6 +59,7 @@ namespace HumanVsZombies
 
             Console.WriteLine();
 
+            //Switch case that controls the menu and calls on the other methods
             switch (Convert.ToInt32(Console.ReadLine()))
             {
                 case 1:
@@ -74,7 +79,9 @@ namespace HumanVsZombies
             Console.ReadLine();
         }
 
-        //Method to start game
+        /// <summary>
+        /// Method that calls the Game class in order to start the gameloop.
+        /// </summary>
         private void Start()
         {
             Game gameLoop = new Game();
@@ -84,7 +91,9 @@ namespace HumanVsZombies
 
         }
 
-        //Method for Credits
+        /// <summary>
+        /// Method that prints the project's credits.
+        /// </summary>
         private void Credits()
         {
             Console.Clear();
@@ -95,14 +104,16 @@ namespace HumanVsZombies
             Console.WriteLine("\t\t\t\t\t    \u2666  Catarina Matias nº21801693");
             Console.WriteLine("\t\t\t\t\t    \u2666  Diana Noia      nº21703004");
             Console.WriteLine("\t\t\t\t\t    \u2666  Sara Gama       nº21705494");
-            // NOVO
+
             Console.WriteLine();
             Console.WriteLine("\t\t\t\t\t\t     Press any key ");
             Console.ReadKey();
             MainMenu();
         }
 
-        //Method to quit game
+        /// <summary>
+        /// Method that exits the console and closes the program.
+        /// </summary>
         private void Quit()
         {
             Environment.Exit(0);

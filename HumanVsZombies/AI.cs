@@ -1,14 +1,17 @@
 ﻿namespace HumanVsZombies
 {
     /// <summary>
-    /// Class AI whith automatics
+    /// Class AI that controls the game's basic Artificial Intelligence
     /// </summary>
     class AI : Agents
     {
-        //  
+        //Public AI constuctor. Sets a type, Id and coordinates.
         public AI(AgentType type, int id, int posX, int posY) : base(type, id, posX, posY) { }
 
-        // 
+        /// <summary>
+        /// Method that goes through the board and check the movement possibilities.
+        /// </summary>
+        /// <param name="board">From the Board Class. Has all the Agent related values.</param>
         public void SearchForAgent(Board board)
         {
             bool toroidal = false;
@@ -18,17 +21,17 @@
             int newX = PosX;
             int newY = PosY;
 
-            //
+            //While going through the board, the cycle checks all current
+            //positions and available moves, passing the values to the AI Agent
             for (int i = 1; i <= ((board.Width + board.Height)); i++)
             {
-                //
                 for (int j = 2; j <= 2; j++)
                 {
                     if (move == 4)
                         move = 1;
                     else
                         move++;
-                    //n
+                    //
                     for (int block = 1; block <= i; block++)
                     {
                         switch (move)
@@ -224,7 +227,8 @@
 
                                 Toroidal(ref x, ref y, board, toroidal);
 
-                                // 
+                                //Checks if the Agent is a Zombie and if
+                                //the nearby Agent is Human, allowing to infect.
                                 if (board.Grid[x, y] != null &&
                                         MyType == AgentType.zombie &&
                                         board.Grid[x, y].MyType == AgentType.human)
