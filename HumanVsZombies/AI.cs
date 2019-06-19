@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace HumanVsZombies
+﻿namespace HumanVsZombies
 {
     /// <summary>
     /// Class AI that controls the game's basic Artificial Intelligence
@@ -261,9 +257,9 @@ namespace HumanVsZombies
         {
             string temp;
             if (MyType == AgentType.human)
-                temp = "h";
+                temp = "\u0040";
             else
-                temp = "z";
+                temp = "\u0298";
             return string.Format(temp + $"{Id:D2}");
         }
     }

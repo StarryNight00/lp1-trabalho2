@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace HumanVsZombies
 {
@@ -94,9 +92,9 @@ namespace HumanVsZombies
             // Check if its Human or Zombie
             string temp;
             if (MyType == AgentType.human)
-                temp = "H";
+                temp = "\u263B";
             else
-                temp = "Z";
+                temp = "\u25CC";
             return string.Format(temp + $"{Id:D2}");
         }
     }
