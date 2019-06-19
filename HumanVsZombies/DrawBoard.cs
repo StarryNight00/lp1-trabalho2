@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace HumanVsZombies
 {
@@ -146,6 +144,13 @@ namespace HumanVsZombies
             Console.Write("|");
             Console.SetCursorPosition(board.Width * 4 + 8, 5);
             Console.Write("S");
+
+
+
+            Console.SetCursorPosition(board.Width * 4 + 5, 9);
+            Console.Write(" Automatico -> @ - humano | ʘ - zombie ");
+            Console.SetCursorPosition(board.Width * 4 + 5, 10);
+            Console.Write(" Player ->  ☻ - Humano | ◌ - Zombie ");
 
             Console.SetCursorPosition(board.Width * 4 + 5, 13);
             Console.Write($"* Próximo a jogar: {a.ToString()} ");
