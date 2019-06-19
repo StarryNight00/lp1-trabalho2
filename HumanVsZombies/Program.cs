@@ -16,8 +16,6 @@ namespace HumanVsZombies
             Menu menu = new Menu();
 
             menu.Intro();
-
-
         }
     }
 }
