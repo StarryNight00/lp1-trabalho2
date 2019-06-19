@@ -9,7 +9,7 @@ namespace HumanVsZombies
     /// </summary>
     class AI : Agents
     {
-        //Public Ai constuctor. Sets a type, Id and coordinates.
+        //Public AI constuctor. Sets a type, Id and coordinates.
         public AI(AgentType type, int id, int posX, int posY) : base(type, id, posX, posY) { }
 
         /// <summary>

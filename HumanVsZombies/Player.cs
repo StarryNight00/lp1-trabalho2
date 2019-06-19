@@ -5,17 +5,18 @@ using System.Text;
 namespace HumanVsZombies
 {
     /// <summary>
-    /// 
+    /// Class Player. Controls all of the player controled agents values and
+    /// console player inputs.
     /// </summary>
     class Player : Agents
     {
-        // Empty Contructor
+        //Public Player constuctor. Sets a type, Id and coordinates.
         public Player(AgentType type, int id, int posX, int posY) : base(type, id, posX, posY) { }
 
         /// <summary>
-        /// 
+        /// Method that controls the player's input and sets the new coordinate values.
         /// </summary>
-        /// <param name="board"></param>
+        /// <param name="board">Current game's board.</param>
         public void MovePlayer(Board board)
         {
             int newX = PosX;
@@ -24,7 +25,8 @@ namespace HumanVsZombies
             ConsoleKeyInfo keyInfo;
             keyInfo = Console.ReadKey();
 
-            // 
+            //Switch case that checks the input and chages the
+            //coordinate's value accordingly.
             switch (keyInfo.Key)
             {
                 // diagonal left baixo
